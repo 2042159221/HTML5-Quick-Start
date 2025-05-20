@@ -41,3 +41,4 @@ pnpm-error.log*
 
 # roo files
 /.roo/
+.git/
