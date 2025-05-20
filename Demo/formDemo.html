@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="专业微信营销工具：AI智能朋友圈评论系统+全场景聊天助手，帮助销售、微商和私域运营者提升客户互动效率，激活沉睡客户资源。" />
+  <meta name="keywords" content="微信营销工具,朋友圈自动评论,微信聊天机器人,私域流量管理,客户关系维护" />
+  <title>微信AI兴趣用户信息收集表</title>
+  <link rel="icon" href="../Demo/logo/roboter.ico" type="image/x-icon">
+  <style>
+    html {
+      scroll-behavior: smooth; /* 平滑滚动 */
+    }
+    body {
+      font-family: Arial, sans-serif; /* 使用audioDemo的字体 */
+      margin: 30px auto; /* 使用audioDemo的边距并居中 */
+      line-height: 1.6;
+      color: #333;
+      max-width: 960px; /* 使用audioDemo的container max-width */
+      padding: 0; /* 移除formDemo原有的padding */
+    }
+    h1, h2, h3 {
+      color: #0e4a7e; /* 使用audioDemo的主题色 */
+      text-align: center; /* 居中标题 */
+    }
+    ul, ol, dl {
+      margin-left: 20px;
+    }
+    dl dt {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    dl dd {
+      margin-left: 20px;
+    }
+    .tool-card { /* formDemo中没有这个类，但保留以防将来使用 */
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+
+    /* 表单特有样式调整 */
+    fieldset {
+      margin-bottom: 40px; /* 与section-box的margin-bottom一致 */
+      padding: 20px;
+      border: 1px solid #0e4a7e; /* 使用主题色作为边框 */
+      border-radius: 5px; /* 与tool-card一致 */
+      background: #f9f9f9; /* 与tool-card一致 */
+    }
+    legend {
+      font-weight: bold;
+      color: #0e4a7e; /* 使用主题色 */
+      padding: 0 10px; /* 增加padding使legend不紧贴边框 */
+    }
+    label {
+      display: block;
+      margin-top: 15px; /* 调整间距 */
+      margin-bottom: 5px;
+      font-weight: bold; /* 标签文字加粗 */
+      color: #555; /* 调整标签颜色 */
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: calc(100% - 18px); /* 调整宽度以适应padding和border */
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc; /* 调整边框颜色 */
+      border-radius: 4px; /* 调整圆角 */
+      box-sizing: border-box; /* 确保padding和border不影响宽度 */
+      font-family: Arial, sans-serif; /* 继承body字体 */
+      font-size: 1rem;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: auto; /* 单选框和复选框不占满宽度 */
+        margin-right: 5px;
+        vertical-align: middle; /* 垂直对齐 */
+    }
+
+    progress, meter {
+      width: 100%;
+      height: 20px;
+      margin-top: 10px;
+    }
+    details {
+      margin-top: 15px; /* 调整间距 */
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fff;
+    }
+    summary {
+        font-weight: bold;
+        cursor: pointer;
+        color: #0e4a7e; /* 使用主题色 */
+    }
+    details p {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      display: inline-block; /* 使按钮并排显示 */
+      width: auto; /* 宽度自适应内容 */
+      padding: 10px 20px; /* 调整padding */
+      margin-right: 10px; /* 按钮间距 */
+      background-color: #0e4a7e; /* 使用主题色 */
+      color: white;
+      border: none;
+      border-radius: 5px; /* 调整圆角 */
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease; /* 添加过渡效果 */
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #0a3a63; /* 悬停颜色 */
+    }
+
+    output {
+        font-weight: bold;
+        color: #0e4a7e; /* 使用主题色 */
+    }
+
+    ruby rt {
+        font-size: 0.8em; /* 调整注音字体大小 */
+        color: #555; /* 调整注音颜色 */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>微信AI工具兴趣用户信息收集表</h1>
+
+  <form oninput="score.value=parseInt(age.value)">
+
+    <!-- 👤 基本信息 -->
+    <fieldset>
+      <legend>基本资料</legend>
+
+      <label for="name">姓名：</label>
+      <input type="text" id="name" name="name" placeholder="请输入姓名" required />
+
+      <label>性别：</label>
+      <label><input type="radio" name="gender" value="男" /> 男</label>
+      <label><input type="radio" name="gender" value="女" /> 女</label>
+      <label><input type="radio" name="gender" value="保密" checked /> 保密</label>
+
+      <label for="job">职业：</label>
+      <select name="job" id="job" required>
+        <option value="" disabled selected>请选择职业</option>
+        <option value="产品经理">产品经理</option>
+        <option value="程序员">程序员</option>
+        <option value="市场运营">市场运营</option>
+        <option value="学生">学生</option>
+        <option value="自由职业">自由职业</option>
+        <option value="其他">其他</option> <!-- 添加“其他”选项 -->
+      </select>
+      <!-- 添加用于填写“其他”职业的文本输入框 -->
+      <input type="text" id="otherJobInput" name="otherJob" placeholder="请填写具体职业" style="display: none; margin-top: 10px;" />
+    </fieldset>
+
+    <!--  兴趣与偏好 -->
+    <fieldset>
+      <legend>AI工具偏好</legend>
+
+      <label>你希望通过微信AI实现什么？</label>
+      <label><input type="checkbox" name="usecase" value="内容创作" /> 内容创作</label>
+      <label><input type="checkbox" name="usecase" value="自动回复客服" /> 自动客服</label>
+      <label><input type="checkbox" name="usecase" value="语音识别" /> 语音识别</label>
+      <label><input type="checkbox" name="usecase" value="AI绘图" /> AI绘图</label>
+
+      <label for="tools">你感兴趣的微信AI功能：</label>
+      <input type="text" list="tool-list" id="tools" name="tools" placeholder="可输入/选择" />
+      <datalist id="tool-list">
+        <option value="对话式AI" />
+        <option value="图像生成" />
+        <option value="知识助手" />
+        <option value="智能翻译" />
+        <option value="语音指令" />
+      </datalist>
+    </fieldset>
+
+    <!--  联系方式 -->
+    <fieldset>
+      <legend>联系方式</legend>
+
+      <label for="email">邮箱地址：</label>
+      <input type="email" name="email" id="email" placeholder="example@domain.com" required />
+
+      <label for="phone">手机号：</label>
+      <input type="tel" name="phone" id="phone" placeholder="请输入手机号" />
+    </fieldset>
+
+    <!--  年龄+实时评分 -->
+    <fieldset>
+      <legend>年龄 + AI适应度评分</legend>
+
+      <label for="age">你的年龄（模拟评分）：</label>
+      <input type="range" name="age" id="age" min="18" max="60" value="25" />
+      当前得分：<output name="score">25</output> 分
+
+      <label>注册完成进度：</label>
+      <progress value="80" max="100">80%</progress>
+
+      <label>AI兴趣热度：</label>
+      <meter value="0.75" min="0" max="1">75%</meter>
+    </fieldset>
+
+    <!--  拼音演示 -->
+    <fieldset>
+      <legend>辅助说明：注音演示</legend>
+      <p>
+        <ruby>
+          <rb>智</rb><rp>(</rp><rt>zhì</rt><rp>)</rp>
+          <rb>能</rb><rp>(</rp><rt>néng</rt><rp>)</rp>
+          <rb>助</rb><rp>(</rp><rt>zhù</rt><rp>)</rp>
+          <rb>手</rb><rp>(</rp><rt>shǒu</rt><rp>)</rp>
+        </ruby>
+      </p>
+    </fieldset>
+
+    <!--  FAQ 折叠 -->
+      <fieldset>
+      <legend>常见问题（FAQ）</legend>
+
+      <details>
+        <summary>提交后我的数据会被怎么使用？</summary>
+        <p>数据仅用于产品调研分析，不会泄露。</p>
+      </details>
+
+      <details>
+        <summary>微信AI未来会有哪些功能？</summary>
+        <p>包括对话生成、图像识别、语音助手、自动回复等。</p>
+      </details>
+
+      <details>
+        <summary>我可以多次提交兴趣表单吗？</summary>
+        <p>可以，每次都能帮助我们更准确了解用户需求。</p>
+      </details>
+    </fieldset>
+
+    <!--  地区选择 -->
+    <fieldset>
+      <legend>所在地区</legend>
+      <label for="province">省份：</label>
+      <select name="province" id="province" required>
+        <option value="" disabled selected>请选择所在省</option>
+        <optgroup label="华北">
+          <option value="北京">北京</option>
+          <option value="天津">天津</option>
+          <option value="河北">河北</option>
+          <option value="山西">山西</option>
+          <option value="内蒙古">内蒙古</option>
+        </optgroup>
+        <optgroup label="东北">
+          <option value="辽宁">辽宁</option>
+          <option value="吉林">吉林</option>
+          <option value="黑龙江">黑龙江</option>
+        </optgroup>
+        <optgroup label="华东">
+          <option value="上海">上海</option>
+          <option value="江苏">江苏</option>
+          <option value="浙江">浙江</option>
+          <option value="安徽">安徽</option>
+          <option value="福建">福建</option>
+          <option value="江西">江西</option>
+          <option value="山东">山东</option>
+        </optgroup>
+        <optgroup label="华中">
+          <option value="河南">河南</option>
+          <option value="湖北">湖北</option>
+          <option value="湖南">湖南</option>
+        </optgroup>
+        <optgroup label="华南">
+          <option value="广东">广东</option>
+          <option value="广西">广西</option>
+          <option value="海南">海南</option>
+        </optgroup>
+        <optgroup label="西南">
+          <option value="重庆">重庆</option>
+          <option value="四川">四川</option>
+          <option value="贵州">贵州</option>
+          <option value="云南">云南</option>
+          <option value="西藏">西藏</option>
+        </optgroup>
+        <optgroup label="西北">
+          <option value="陕西">陕西</option>
+          <option value="甘肃">甘肃</option>
+          <option value="青海">青海</option>
+          <option value="宁夏">宁夏</option>
+          <option value="新疆">新疆</option>
+        </optgroup>
+        <optgroup label="港澳台">
+          <option value="香港">香港</option>
+          <option value="澳门">澳门</option>
+          <option value="台湾">台湾</option>
+        </optgroup>
+      </select>
+    </fieldset>
+
+    <!--  按钮区 -->
+    <p>
+      <input type="submit" value="提交信息" />
+      <input type="reset" value="重置表单" />
+    </p>
+  </form>
+
+  <script>
+    // 获取职业选择和“其他”输入框元素
+    const jobSelect = document.getElementById('job');
+    const otherJobInput = document.getElementById('otherJobInput');
+
+    // 监听职业选择的变化事件
+    jobSelect.addEventListener('change', function() {
+      // 如果选中“其他”，则显示输入框，否则隐藏
+      if (jobSelect.value === '其他') {
+        otherJobInput.style.display = 'block';
+      } else {
+        otherJobInput.style.display = 'none';
+        otherJobInput.value = ''; // 清空输入框内容
+      }
+    });
+  </script>
+
+</body>
+</html>
