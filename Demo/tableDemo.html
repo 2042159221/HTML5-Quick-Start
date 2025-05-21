@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信AI兴趣用户信息表格</title>
+    <meta name="description" content="专业微信营销工具：AI智能朋友圈评论系统+全场景聊天助手，帮助销售、微商和私域运营者提升客户互动效率，激活沉睡客户资源。" />
+    <meta name="keywords" content="微信营销工具,朋友圈自动评论,微信聊天机器人,私域流量管理,客户关系维护" />
+    <link rel="icon" href="../Demo/logo/roboter.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding:40px;
+            background-color: #f7f7f7;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        caption {
+            caption-side: top;
+            text-align:center;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            color: #0e4a7e;
+        }
+        th,td {
+            border: 1px solid #ccc;
+            padding: 12px 10px;
+            text-align: center;
+        }
+        thead {
+            background: #f0f8ff;
+        }
+        tfoot {
+            background-color: #fafafa;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        input[type="text"] {
+            margin-bottom: 15px;
+            padding: 6px;
+            width: 300px;
+            border:1px solid #ccc;
+        }
+        ruby rt {
+            font-size: 0.8em;
+            color: #999;
+        }
+        summary {
+            font-size: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">微信AI兴趣用户信息表格</h1>
+    <input type="text" id="filterInput" placeholder="🔍 请输入关键词进行过滤...">
+    <table id="userTable">
+        <caption>微信AI用户兴趣信息一览</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>职业</th>
+                <th>地区</th>
+                <th>兴趣点</th>
+                <th>感兴趣功能</th>
+                <th>联系方式</th>
+                <th>AI适应度</th>
+                <th colspan="2">身份证明</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- 数据行将在这里插入 -->
+             <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>程序员</td>
+                <td>北京</td>
+                <td>
+                    内容创作<br>自动客服
+                </td>
+                <td>
+                    图像生成<br>
+                    对话式AI
+                </td>
+                <td>zhangsan@example.com<br>13653062121</td>
+                <td>
+                    <meter value="0.85" min="0" max="1">85%</meter><br>
+                    <progress value="85" max="100"></progress>
+                </td>
+                <td colspan="2">实名认证成功</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>产品经理</td>
+                <td>上海</td>
+                <td>
+                  AI绘图<br>语音识别
+                </td>
+                <td>
+                  翻译助手
+                </td>
+                <td>lisi@weixin.com<br>139****5678</td>
+                <td>
+                  <meter value="0.65" min="0" max="1">65%</meter><br>
+                  <progress value="65" max="100"></progress>
+                </td>
+                <td >等待验证</td>
+                <td >未提交</td>
+              </tr>
+              <tr>
+                <td>王五</td>
+                <td>保密</td>
+                <td>市场运营</td>
+                <td>北京</td>
+                <td>
+                  内容创作
+                </td>
+                <td>
+                  语音讲解
+                </td>
+                <td>wangwu@demo.com<br>137****8888</td>
+                <td>
+                  <meter value="0.95" min="0" max="1">95%</meter><br>
+                  <progress value="95" max="100"></progress>
+                </td>
+                <td >等待验证</td>
+                <td >已提交</td>
+              </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="10">
+                    本表共收录 3 条用户数据<br>
+                    数据来源：微信AI兴趣用户信息收集表
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <details style="margin-top: 30px;">
+        <summary>📌 表格说明（点击展开）</summary>
+        <p>本表格展示来源于微信AI兴趣收集表单，展示了用户填写的职业、地区、兴趣点和联系方式等信息。</p>
+        <p>“AI适应度”为系统模拟得分，以进度条与度量条两种方式展示。</p>
+        <p>部分关键词使用 `<ruby>` 注音辅助，提升产品易懂性。</p>
+      </details>
+    <script>
+        // 过滤功能
+        const input = document.getElementById("filterInput");
+        const table = document.getElementById("userTable");
+        input.addEventListener("keyup", function () {
+        const filter = input.value.toLowerCase();
+        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        for (let row of rows) {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        }
+        });
+       // 点击表头排序（简单实现）
+        const headers = table.querySelectorAll("thead th");
+        headers.forEach((th, idx) => {
+        th.addEventListener("click", () => {
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            const sorted = rows.sort((a, b) => {
+            const valA = a.children[idx]?.innerText || "";
+            const valB = b.children[idx]?.innerText || "";
+            return valA.localeCompare(valB);
+            });
+            tbody.innerHTML = "";
+            sorted.forEach(row => tbody.appendChild(row));
+        });
+        });
+    </script>
+</body>
+</html>
