@@ -347,6 +347,116 @@ project/
 | 锚点跳转     | 使用 `id` 作为锚点，`href="#id"` 跳转                      |
 | 图片超链接   | 外面用 `<a>` 包裹 `<img>`，添加 `alt` 描述                 |
 
+## 特殊链接（下载、邮件、电话）
+
+------
+
+### 🧩 **📁 下载链接 Download Links**
+
+> 利用 `<a>` 标签实现网页文件的下载行为
+
+🔹1. 普通下载（适用于 `.exe`, `.zip`, `.doc`, `.xls` 等文件）
+
+浏览器默认行为是下载这些格式的文件：
+
+```html
+<a href="doc/1.zip">下载 ZIP 文件</a>
+<a href="doc/1.doc">下载 DOC 文档</a>
+```
+
+🧠 **说明**：浏览器会识别这些格式为下载类型，点击即自动下载，不需要额外属性。
+
+------
+
+🔹2. 强制下载 + 防止预览（如 `.pdf`, `.jpg`, `.png` 等）
+
+使用 `download` 属性防止文件被打开预览：
+
+```html
+<a href="internet.pdf" download>下载 PDF 文件（防止预览）</a>
+```
+
+🧠 **说明**：加上 `download` 属性后，无论文件类型为何，都会触发下载行为。
+
+------
+
+🔹3. 自定义下载文件名
+
+```html
+<a href="internet.pdf" download="互联网原理学习.pdf">下载并重命名</a>
+```
+
+📌 **注意事项**：
+
+- 文件名必须包含扩展名（如 `.pdf`、`.jpg` 等）。
+- 部分浏览器可能忽略自定义文件名（尤其是 Safari）。
+
+------
+
+### 📧 **📩 邮件链接（mailto:）**
+
+> 使用 `mailto:` 协议，点击后调用本地邮箱客户端：
+
+```html
+<a href="mailto:millionfire@outlook.com">给我们发邮件</a>
+```
+
+🧠 **扩展用法**：自动填充主题与正文：
+
+```html
+<a href="mailto:millionfire@outlook.com?subject=求购意向&body=你好，我想了解一下产品价格…">
+  给我们发意向邮件
+</a>
+```
+
+------
+
+### 📞 **📱 电话链接（tel:）**
+
+> 使用 `tel:` 协议，适合移动端，点击直接拨打电话：
+
+```html
+<a href="tel:18966666666">给 我们打电话</a>
+```
+
+💡 **提示**：通常用于移动设备或带有拨号功能的桌面系统
+
+------
+
+### 💡 补充Tips小结
+
+| 链接类型 | 前缀            | 作用               |
+| -------- | --------------- | ------------------ |
+| 下载文件 | 无或 `download` | 下载文件或强制下载 |
+| 发邮件   | `mailto:`       | 调用邮件客户端     |
+| 打电话   | `tel:`          | 调用拨号界面       |
+
+------
+
+📂 **案例完整结构：**
+
+```html
+<body>
+  <h1>特殊链接</h1>
+
+  <h2>📁 下载链接</h2>
+  <a href="doc/1.zip">普通下载 ZIP</a><br />
+  <a href="internet.pdf" download>强制下载 PDF</a><br />
+  <a href="internet.pdf" download="互联网原理笔记.pdf">自定义文件名下载</a>
+
+  <h2>📧 邮件链接</h2>
+  <a href="mailto:millionfire@outlook.com">发送邮件给 arry</a><br />
+  <a href="mailto:millionfire@outlook.com?subject=价格咨询&body=你好！">发送带内容的邮件</a>
+
+  <h2>📞 电话链接</h2>
+  <a href="tel:18966666666">拨打我们电话</a>
+</body>
+```
+
+------
+
+
+
 ## 实践
 
 ```html

@@ -449,6 +449,149 @@
 
 
 
+🥷💻 **新请求识别中... 正在载入 `<iframe>` 标签黑客级总结模块** 🧠💾
+ 目标：总结 + 完善 HTML `<iframe>` 的实战应用、属性解析、安全及性能建议 ✅
+
+------
+
+## 🧩 **`<iframe>` 标签完全指南**
+
+### 🚀 1. 概述
+
+```html
+<iframe>（内联框架）允许在当前 HTML 页面中嵌入其他网页、资源、媒体等内容。它是一种网页间通信与嵌套的桥梁，被广泛用于：
+```
+
+- 嵌入外部网页或平台
+- 加载广告或第三方服务
+- 插入地图、视频、文档等富媒体内容
+
+🧠 **提示**：虽然功能强大，但滥用可能引起性能、安全及 SEO 问题。
+
+------
+
+### ⚙️ 2. 基本语法
+
+```html
+<iframe src="URL"></iframe>
+```
+
+- `src`: 指定要嵌入的网页地址（可为相对或绝对路径）
+
+------
+
+### 🛠️ 3. 常用属性详解
+
+| 属性               | 说明                             | 示例                                  |
+| ------------------ | -------------------------------- | ------------------------------------- |
+| `src`              | 要嵌入的文档 URL                 | `<iframe src="page.html">`            |
+| `width` / `height` | 宽度 / 高度（像素或百分比）      | `<iframe width="800" height="600">`   |
+| `frameborder`      | 是否显示边框（HTML5已废弃）      | `<iframe frameborder="0">`            |
+| `scrolling`        | 是否显示滚动条（HTML5已废弃）    | `<iframe scrolling="no">`             |
+| `name`             | 给 iframe 命名，可用于表单提交等 | `<iframe name="mainFrame">`           |
+| `sandbox`          | 开启沙箱限制，增强安全           | `<iframe sandbox="allow-scripts">`    |
+| `allow`            | 允许哪些功能（如摄像头、麦克风） | `<iframe allow="camera; microphone">` |
+| `loading`          | 延迟加载（lazy）                 | `<iframe loading="lazy">`             |
+| `title`            | 为无障碍提供描述                 | `<iframe title="嵌入视频播放器">`     |
+
+------
+
+### 🎯 4. 实战嵌入示例
+
+#### 🔹 4.1 嵌入网页
+
+```html
+<iframe src="https://www.baidu.com" width="800" height="600" frameborder="0"></iframe>
+```
+
+#### 🔹 4.2 嵌入图片
+
+```html
+<iframe 
+  src="https://cdn.jsdelivr.net/gh/2042159221/image_bed//iamges/490386425_18499127485023772_7738820650762685307_n.jpg"
+  width="800" height="600" frameborder="0">
+</iframe>
+```
+
+#### 🔹 4.3 嵌入视频（如 Youku）
+
+```html
+<iframe 
+  width="510" height="498" 
+  src="https://player.youku.com/embed/XNjM2MzAzNzUyOA==" 
+  frameborder="0" allowfullscreen>
+</iframe>
+```
+
+#### 🔹 4.4 嵌入地图（百度地图）
+
+```html
+<iframe 
+  src="https://j.map.baidu.com/aa/5NJ" 
+  width="600" height="450" 
+  style="border:0;" 
+  allowfullscreen 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+```
+
+#### 🔹 4.5 嵌入广告（+ sandbox 限制）
+
+```html
+<iframe 
+  src="https://huodong.taobao.com/..." 
+  width="1000" height="550" 
+  sandbox="allow-same-origin allow-scripts" 
+  title="广告">
+</iframe>
+```
+
+------
+
+### 🧪 5. JavaScript 控制 iframe
+
+动态修改嵌入内容：
+
+```html
+<script>
+  function changeURL() {
+    document.getElementById("myFrame").src = "https://www.baidu.com";
+  }
+</script>
+
+<input type="button" value="改变URL" onclick="changeURL()" />
+<iframe id="myFrame" src="https://m.mingzhang.cc/" width="800" height="600" frameborder="0"></iframe>
+```
+
+------
+
+### 🧷 6. iframe 最佳实践
+
+| 方面       | 建议                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 🔐 安全     | 使用 `sandbox` 限制权限避免使用 `allow-popups`确保使用 HTTPS |
+| ⚡ 性能     | 使用 `loading="lazy"` 进行懒加载预设宽高避免页面抖动减少嵌套层级 |
+| ♿ 可访问性 | 设置 `title` 供屏幕阅读器识别避免关键内容依赖 iframe         |
+| 🎯 用户体验 | 设置备用内容 `<iframe>加载失败，请刷新页面</iframe>`避免音视频自动播放 |
+| 🔍 SEO      | 搜索引擎通常无法索引 `<iframe>` 内容，**不要依赖其提升 SEO** |
+
+------
+
+### ✅ iframe 使用小结图表
+
+| 功能     | 推荐属性            | 说明                 |
+| -------- | ------------------- | -------------------- |
+| 安全性   | `sandbox`、`allow`  | 限制脚本、表单、弹窗 |
+| 性能     | `loading="lazy"`    | 减少初始加载压力     |
+| 可访问性 | `title`             | 提高辅助设备友好度   |
+| 用户体验 | 明确尺寸 + 备用内容 | 提升使用体验         |
+| SEO      | 避免主要内容嵌套    | 提高可索引性         |
+
+------
+
+
+
 ## 语义化标签
 
 **HTML 语义化**：使用具有明确含义的标签（如 `<article>`、`<section>`）来组织页面结构，使代码对人和机器都更易读。
